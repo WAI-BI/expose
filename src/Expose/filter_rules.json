@@ -927,6 +927,230 @@
           ]
         },
         "impact":"10"
+      },
+      {
+        "id": "79",
+        "rule": "(?:alert\\()",
+        "description": "Detects basic JavaScript alert XSS attempts",
+        "tags": { "tag": ["xss"] },
+        "impact": "5"
+      },
+      {
+        "id": "80",
+        "rule": "(?:document\\.cookie)",
+        "description": "Detects attempts to access document cookies",
+        "tags": { "tag": ["xss"] },
+        "impact": "6"
+      },
+      {
+        "id": "81",
+        "rule": "(?:<script>)",
+        "description": "Detects the presence of script tags",
+        "tags": { "tag": ["xss"] },
+        "impact": "7"
+      },
+      {
+        "id": "82",
+        "rule": "(?:onerror=)",
+        "description": "Detects the use of onerror event handler",
+        "tags": { "tag": ["xss"] },
+        "impact": "4"
+      },
+      {
+        "id": "83",
+        "rule": "(?:SELECT\\s.*\\sFROM)",
+        "description": "Detects basic SQL SELECT statements",
+        "tags": { "tag": ["sqli"] },
+        "impact": "4"
+      },
+      {
+        "id": "84",
+        "rule": "(?:UNION\\s+SELECT)",
+        "description": "Detects SQL UNION SELECT injection attempts",
+        "tags": { "tag": ["sqli"] },
+        "impact": "7"
+      },
+      {
+        "id": "85",
+        "rule": "(?:DROP\\s+TABLE)",
+        "description": "Detects SQL DROP TABLE statements",
+        "tags": { "tag": ["sqli"] },
+        "impact": "8"
+      },
+      {
+        "id": "86",
+        "rule": "(?:INSERT\\s+INTO)",
+        "description": "Detects SQL INSERT INTO statements",
+        "tags": { "tag": ["sqli"] },
+        "impact": "5"
+      },
+      {
+        "id": "87",
+        "rule": "(?:UPDATE\\s+SET)",
+        "description": "Detects SQL UPDATE SET statements",
+        "tags": { "tag": ["sqli"] },
+        "impact": "5"
+      },
+      {
+        "id": "88",
+        "rule": "(?:\\bexec\\b\\s+\\b\\w+\\b)",
+        "description": "Detects SQL EXEC function usage",
+        "tags": { "tag": ["sqli"] },
+        "impact": "6"
+      },
+      {
+        "id": "89",
+        "rule": "(?:\\bAND\\b\\s+\\b\\w+\\b\\s*=\\s*\\b\\w+\\b)",
+        "description": "Detects SQL AND conditions",
+        "tags": { "tag": ["sqli"] },
+        "impact": "4"
+      },
+      {
+        "id": "90",
+        "rule": "(?:\\bOR\\b\\s+\\b\\w+\\b\\s*=\\s*\\b\\w+\\b)",
+        "description": "Detects SQL OR conditions",
+        "tags": { "tag": ["sqli"] },
+        "impact": "4"
+      },
+      {
+        "id": "91",
+        "rule": "(?:<iframe>)",
+        "description": "Detects the presence of iframe tags",
+        "tags": { "tag": ["xss"] },
+        "impact": "6"
+      },
+      {
+        "id": "92",
+        "rule": "(?:<img src=)",
+        "description": "Detects image tags with src attributes",
+        "tags": { "tag": ["xss"] },
+        "impact": "5"
+      },
+      {
+        "id": "93",
+        "rule": "(?:onload=)",
+        "description": "Detects the use of onload event handler",
+        "tags": { "tag": ["xss"] },
+        "impact": "4"
+      },
+      {
+        "id": "94",
+        "rule": "(?:javascript:)",
+        "description": "Detects JavaScript URI scheme",
+        "tags": { "tag": ["xss"] },
+        "impact": "6"
+      },
+      {
+        "id": "95",
+        "rule": "(?:vbscript:)",
+        "description": "Detects VBScript URI scheme",
+        "tags": { "tag": ["xss"] },
+        "impact": "6"
+      },
+      {
+        "id": "96",
+        "rule": "(?:<embed>)",
+        "description": "Detects the presence of embed tags",
+        "tags": { "tag": ["xss"] },
+        "impact": "6"
+      },
+      {
+        "id": "97",
+        "rule": "(?:<object>)",
+        "description": "Detects the presence of object tags",
+        "tags": { "tag": ["xss"] },
+        "impact": "6"
+      },
+      {
+        "id": "98",
+        "rule": "(?:<style>)",
+        "description": "Detects the presence of style tags",
+        "tags": { "tag": ["xss"] },
+        "impact": "5"
+      },
+      {
+        "id": "99",
+        "rule": "(?:xp_cmdshell)",
+        "description": "Detects SQL Server's xp_cmdshell command",
+        "tags": { "tag": ["sqli"] },
+        "impact": "8"
+      },
+      {
+        "id": "100",
+        "rule": "(?:sp_executesql)",
+        "description": "Detects SQL Server's sp_executesql command",
+        "tags": { "tag": ["sqli"] },
+        "impact": "7"
+      },
+      {
+        "id": "101",
+        "rule": "(?:sp_adduser)",
+        "description": "Detects SQL Server's sp_adduser command",
+        "tags": { "tag": ["sqli"] },
+        "impact": "6"
+      },
+      {
+        "id": "102",
+        "rule": "(?:sp_addlogin)",
+        "description": "Detects SQL Server's sp_addlogin command",
+        "tags": { "tag": ["sqli"] },
+        "impact": "6"
+      },
+      {
+        "id": "103",
+        "rule": "(?:admin--)",
+        "description": "Detects MySQL comment-based injection",
+        "tags": { "tag": ["sqli"] },
+        "impact": "7"
+      },
+      {
+        "id": "104",
+        "rule": "(?:--)",
+        "description": "Detects SQL comment indicators",
+        "tags": { "tag": ["sqli"] },
+        "impact": "4"
+      },
+      {
+        "id": "105",
+        "rule": "(?:benchmark\\()",
+        "description": "Detects SQL benchmark function",
+        "tags": { "tag": ["sqli"] },
+        "impact": "5"
+      },
+      {
+        "id": "106",
+        "rule": "(?:sleep\\()",
+        "description": "Detects SQL sleep function",
+        "tags": { "tag": ["sqli"] },
+        "impact": "5"
+      },
+      {
+        "id": "107",
+        "rule": "(?:load_file\\()",
+        "description": "Detects SQL load_file function",
+        "tags": { "tag": ["sqli"] },
+        "impact": "6"
+      },
+      {
+        "id": "108",
+        "rule": "(?:outfile)",
+        "description": "Detects SQL outfile command",
+        "tags": { "tag": ["sqli"] },
+        "impact": "6"
+      },
+      {
+        "id": "109",
+        "rule": "(?:information_schema)",
+        "description": "Detects SQL information_schema access",
+        "tags": { "tag": ["sqli"] },
+        "impact": "6"
+      },
+      {
+        "id": "110",
+        "rule": "(?:isnull\\()",
+        "description": "Detects SQL isnull function",
+        "tags": { "tag": ["sqli"] },
+        "impact": "5"
       }
     ]
 }
