@@ -12,59 +12,59 @@ class FilterCollection implements \ArrayAccess, \Iterator, \Countable
     private $filterData = array();
     private $index = 0;
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->index = 0;
     }
-    public function current()
+    public function current(): Filter
     {
         return $this->filterData[$this->index];
     }
 
-    public function key()
+    public function key(): int
     {
         return $this->index;
     }
 
-    public function next()
+    public function next(): void
     {
         $this->index++;
     }
 
-    public function valid()
+    public function valid(): bool
     {
         return (isset($this->filterData[$this->index]));
     }
 
-    public function count()
+    public function count(): int
     {
         return count($this->filterData);
     }
-
-    public function offsetGet($offset)
+    //ritorna o l'oggetto dell'array (Filter) o null
+    public function offsetGet($offset): ?Filter
     {
         return (isset($this->filterData[$offset]))
             ? $this->filterData[$offset] : null;
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->filterData[$offset] = $value;
     }
 
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->filterData[$offset]);
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         if (isset($this->filterData[$offset])) {
             unset($this->filterData[$offset]);
         }
     }
 
-    public function load($path = null)
+    public function load($path = null): void
     {
         $loadFile = __DIR__.'/'.$this->filterPath;
         if ($path !== null && is_file($path)) {
@@ -80,7 +80,7 @@ class FilterCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @param array $data Filter data
      */
-    public function setFilterData($data)
+    public function setFilterData($data): void
     {
         foreach ($data as $index => $config) {
             if (is_object($config)) {
@@ -97,7 +97,7 @@ class FilterCollection implements \ArrayAccess, \Iterator, \Countable
      * @param integer $filterId
      * @param integer $impact
      */
-    public function setFilterImpact($filterId, $impact) {
+    public function setFilterImpact($filterId, $impact): void {
         $filter = $this->getFilterData($filterId);
 
         if($filter === null) {
@@ -129,7 +129,7 @@ class FilterCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @param string $path Location of json filter set
      */
-    public function setFilterPath($path)
+    public function setFilterPath($path) : void
     {
         $this->filterPath=$path;
     }
@@ -139,7 +139,7 @@ class FilterCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @param \Expose\Filter $filter Filter object
      */
-    public function addFilter(\Expose\Filter $filter)
+    public function addFilter(\Expose\Filter $filter): void
     {
         $this->filterData[] = $filter;
     }
