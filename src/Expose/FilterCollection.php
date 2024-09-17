@@ -1,7 +1,7 @@
 <?php
 
 namespace Expose;
-
+//prova
 class FilterCollection implements \ArrayAccess, \Iterator, \Countable
 {
     private $filterPath = 'filter_rules.json';
