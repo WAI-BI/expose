@@ -74,18 +74,6 @@
         "impact":"5"
       },
       {
-        "id":"7",
-        "rule":"(?:[=(].+\\?.+:)|(?:with\\([^)]*\\)\\))|(?:\\.\\s*source\\W)",
-        "description":"Detects JavaScript with(), ternary operators and XML predicate attacks",
-        "tags":{
-          "tag":[
-            "xss",
-            "csrf"
-          ]
-        },
-        "impact":"5"
-      },
-      {
         "id":"8",
         "rule":"(?:\\\/\\w*\\s*\\)\\s*\\()|(?:\\([\\w\\s]+\\([\\w\\s]+\\)[\\w\\s]+\\))|(?:(?<!(?:mozilla\\\/\\d\\.\\d\\s))\\([^)[]+\\[[^\\]]+\\][^)]*\\))|(?:[^\\s!][{([][^({[]+[{([][^}\\])]+[}\\])][\\s+\",\\d]*[}\\])])|(?:\"\\)?\\]\\W*\\[)|(?:=\\s*[^\\s:;]+\\s*[{([][^}\\])]+[}\\])];)",
         "description":"Detects self-executing JavaScript functions",
@@ -528,48 +516,9 @@
         "impact":"6"
       },
       {
-        "id":"43",
-        "rule":"(?:\"\\s*\\*.+(?:or|id)\\W*\"\\d)|(?:\\^\")|(?:^[\\w\\s\"-]+(?<=and\\s)(?<=or\\s)(?<=xor\\s)(?<=nand\\s)(?<=not\\s)(?<=\\|\\|)(?<=\\&\\&)\\w+\\()|(?:\"[\\s\\d]*[^\\w\\s]+\\W*\\d\\W*.*[\"\\d])|(?:\"\\s*[^\\w\\s?]+\\s*[^\\w\\s]+\\s*\")|(?:\"\\s*[^\\w\\s]+\\s*[\\W\\d].*(?:#|--))|(?:\".*\\*\\s*\\d)|(?:\"\\s*or\\s[^\\d]+[\\w-]+.*\\d)|(?:[()*<>%+-][\\w-]+[^\\w\\s]+\"[^,])",
-        "description":"Detects classic SQL injection probings 2\/2",
-        "tags":{
-          "tag":[
-            "sqli",
-            "id",
-            "lfi"
-          ]
-        },
-        "impact":"6"
-      },
-      {
         "id":"44",
         "rule":"(?:\\d\"\\s+\"\\s+\\d)|(?:^admin\\s*\"|(\\\/\\*)+\"+\\s?(?:--|#|\\\/\\*|{)?)|(?:\"\\s*or[\\w\\s-]+\\s*[+<>=(),-]\\s*[\\d\"])|(?:\"\\s*[^\\w\\s]?=\\s*\")|(?:\"\\W*[+=]+\\W*\")|(?:\"\\s*[!=|][\\d\\s!=+-]+.*[\"(].*$)|(?:\"\\s*[!=|][\\d\\s!=]+.*\\d+$)|(?:\"\\s*like\\W+[\\w\"(])|(?:\\sis\\s*0\\W)|(?:where\\s[\\s\\w\\.,-]+\\s=)|(?:\"[<>~]+\")",
         "description":"Detects basic SQL authentication bypass attempts 1\/3",
-        "tags":{
-          "tag":[
-            "sqli",
-            "id",
-            "lfi"
-          ]
-        },
-        "impact":"7"
-      },
-      {
-        "id":"45",
-        "rule":"(?:union\\s*(?:all|distinct|[(!@]*)\\s*[([]*\\s*select)|(?:\\w+\\s+like\\s+\\\")|(?:like\\s*\"\\%)|(?:\"\\s*like\\W*[\"\\d])|(?:\"\\s*(?:n?and|x?or|not |\\|\\||\\&\\&)\\s+[\\s\\w]+=\\s*\\w+\\s*having)|(?:\"\\s*\\*\\s*\\w+\\W+\")|(?:\"\\s*[^?\\w\\s=.,;)(]+\\s*[(@\"]*\\s*\\w+\\W+\\w)|(?:select\\s*[\\[\\]()\\s\\w\\.,\"-]+from)|(?:find_in_set\\s*\\()",
-        "description":"Detects basic SQL authentication bypass attempts 2\/3",
-        "tags":{
-          "tag":[
-            "sqli",
-            "id",
-            "lfi"
-          ]
-        },
-        "impact":"7"
-      },
-      {
-        "id":"46",
-        "rule":"(?:in\\s*\\(+\\s*select)|(?:(?:n?and|x?or|not |\\|\\||\\&\\&)\\s+[\\s\\w+]+(?:regexp\\s*\\(|sounds\\s+like\\s*\"|[=\\d]+x))|(\"\\s*\\d\\s*(?:--|#))|(?:\"[%&<>^=]+\\d\\s*(=|or))|(?:\"\\W+[\\w+-]+\\s*=\\s*\\d\\W+\")|(?:\"\\s*is\\s*\\d.+\"?\\w)|(?:\"\\|?[\\w-]{3,}[^\\w\\s.,]+\")|(?:\"\\s*is\\s*[\\d.]+\\s*\\W.*\")",
-        "description":"Detects basic SQL authentication bypass attempts 3\/3",
         "tags":{
           "tag":[
             "sqli",
@@ -692,18 +641,6 @@
         "id":"56",
         "rule":"(?:merge.*using\\s*\\()|(execute\\s*immediate\\s*\")|(?:\\W+\\d*\\s*having\\s*[^\\s\\-])|(?:match\\s*[\\w(),+-]+\\s*against\\s*\\()",
         "description":"Detects MATCH AGAINST, MERGE, EXECUTE IMMEDIATE and HAVING injections",
-        "tags":{
-          "tag":[
-            "sqli",
-            "id"
-          ]
-        },
-        "impact":"5"
-      },
-      {
-        "id":"57",
-        "rule":"(?:,.*[)\\da-f\"]\"(?:\".*\"|\\Z|[^\"]+))|(?:\\Wselect.+\\W*from)|((?:select|create|rename|truncate|load|alter|delete|update|insert|desc)\\s*\\(\\s*space\\s*\\()",
-        "description":"Detects MySQL comment-\/space-obfuscated injections and backtick termination",
         "tags":{
           "tag":[
             "sqli",
